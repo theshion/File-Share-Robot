@@ -1,12 +1,11 @@
 import os
 import asyncio
-from pyrogram import Client, filters, __version__
-from pyrogram.enums import ParseMode
+from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
-from helper_func import subscribed, decode, get_messages
+from helper_func import subscribed, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 
 SECONDS = int(os.getenv("SECONDS", "600"))
@@ -99,6 +98,10 @@ async def start_command(client: Client, message: Message):
             quote=True
         )
         return
+
+WAIT_MSG = """"<b>Processing ...</b>"""
+
+REPLY_ERROR = """<code>Use this command as a replay to any telegram message with out any spaces.</code>"""
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
