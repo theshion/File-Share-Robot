@@ -22,7 +22,7 @@ API_HASH = os.environ.get("API_HASH", "")
 OWNER = os.environ.get("OWNER", "") #Owner username
 OWNER_ID = int(os.environ.get("OWNER_ID", "")) #Owner user id
 DB_URL = os.environ.get("DB_URL", "")
-DB_NAME = os.environ.get("DB_NAME", "madflixbotz")
+DB_NAME = os.environ.get("DB_NAME", "Join")
 
 
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
@@ -43,7 +43,7 @@ START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\nI can store privat
 
 try:
     ADMINS=[7085541484]
-    for x in (os.environ.get("ADMINS", "5115691197 6273945163 6103092779 5231212075").split()):
+    for x in (os.environ.get("ADMINS", "7050270303").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
